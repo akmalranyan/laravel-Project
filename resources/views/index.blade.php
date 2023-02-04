@@ -21,7 +21,7 @@
             <ul class="my-4 space-y-3">
 
                 <li class="mt-[8vh]">
-                    <a href="admin.php"
+                    <a href="{{ url('/admin') }}"
                         class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                         <i class="fa-solid fa-clipboard-user mr-[10px] fa-lg"></i>
                         <p>Admin</p>
