@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing');
 });
-Route::get('/admin',function(){
+Route::get('/admin-login',function(){
     return view('login-admin');
 });

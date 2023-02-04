@@ -21,7 +21,7 @@
 
             <div class="card bg-slate-900 mt-20 h-[500px] p-8 rounded-lg">
                 <div class="card-body">
-                    <form action="{{ url('/admin') }}" method="POST">
+                    <form action="{{ url('/admin-login') }}" method="POST">
                         <h2 class="text-slate-200 text-2xl">Login To Your Admin Account</h2>
                         <div class="">
                             {{-- name input section --}}
