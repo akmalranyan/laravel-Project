@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,12 @@ Route::get('/', function () {
     return view('landing');
 });
 Route::get('/admin-login',function(){
-    return view('login-admin');
+    return view('auth.login-admin');
 });
 Route::get('/signup-adopter',function(){
-    return view('signup-adopter');
+    return view('auth.signup-adopter');
 });
 Route::get('/login-adopter',function(){
-    return view('login-adopter');
+    return view('auth.login-adopter');
 });
+Route::get('/home-admin',[PetController::class, 'index']);

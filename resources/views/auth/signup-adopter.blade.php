@@ -1,6 +1,6 @@
+
 <!doctype html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,16 @@
 </head>
 
 <body>
-
-
     <div class="">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="bg-slate-700 justify-center flex pt-12">
             <i class="fa-solid fa-paw fa-xl mt-[15px]" style="color: white;"></i>
             <p class=" text-2xl text-white">Doppie</p>
@@ -21,7 +28,8 @@
 
             <div class="card bg-slate-900 mt-20 h-[500px] p-8 w-[500px] rounded-lg">
                 <div class="card-body">
-                    <form action="{{ url('/admin-login') }}" method="POST">
+                    <form action="{{ route('signup-adopter') }}" method="POST">
+                        @csrf
                         <h2 class="text-slate-200 text-2xl">Sign Up</h2>
                         <div class="">
                             {{-- name input section --}}
@@ -64,16 +72,19 @@
 
                         <div class="">
                             <button type="submit"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10">Login</button>
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10">Sign
+                                Up</button>
                         </div>
                     </form>
                     </form>
                     <div class="mt-5">
-                        <p class="text-white">already have an account? <a href="{{ url('/login-adopter') }}" class="text-blue-500">login here</a></p>
+                        <p class="text-white">already have an account? <a href="{{ url('/login-adopter') }}"
+                                class="text-blue-500">login here</a></p>
                     </div>
                 </div>
             </div>
         </div>
+        
 
         <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
 </body>
