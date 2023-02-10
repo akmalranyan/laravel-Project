@@ -14,7 +14,7 @@ class CreateAddColumnImgPetsTable extends Migration
     public function up()
     {
         Schema::table('pets', function (Blueprint $table) {
-            $table->string('img');
+            $table->string('img')->nullable()->after('shop');
         });
     }
 

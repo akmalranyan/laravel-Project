@@ -27,3 +27,4 @@ Route::get('/login-adopter',function(){
     return view('auth.login-adopter');
 });
 Route::get('/home-admin',[PetController::class, 'index']);
+Route::get('/create',[PetController::class, 'create']);

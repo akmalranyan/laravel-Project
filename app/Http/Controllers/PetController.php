@@ -19,10 +19,23 @@ class PetController extends Controller
     return view('pets.index', [
         'data' => $pets
     ]);
-    
-    //create
-    public function create(){
-
-    }
 }
+    
+
+public function create(){
+    
+    return view('pets.create');
+}
+    //create
+    public function store(Request $request){
+        Pets::create([
+            'type' => $request -> type,
+            'age' => $request -> age,
+            'desc' => $request -> desc,
+            'shop' => $request -> shop,
+
+        ]);
+        return redirect('/home');
+    }
+
 }

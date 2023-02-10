@@ -132,7 +132,7 @@
             <div class="ml-4 mt-8">
                 <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, user</p>
                 <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add, edit, or delete your pets data here</p>
-                <a type="button" href=""
+                <a type="button" href="{{url('/create')}}"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
                     New Adoption</a>
             </div>
@@ -151,7 +151,7 @@
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{ $item->type }}</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $item->desc }}</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $item->desc }} {{ $item->age }} years old</p>
                         <a href="#"
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             {{ $item->shop }}
