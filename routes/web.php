@@ -19,3 +19,9 @@ Route::get('/', function () {
 Route::get('/admin-login',function(){
     return view('login-admin');
 });
+Route::get('/signup-adopter',function(){
+    return view('signup-adopter');
+});
+Route::get('/login-adopter',function(){
+    return view('login-adopter');
+});
