@@ -116,16 +116,10 @@
                 </ul>
             </div>
             <div class="px-8 border-t border-gray-700">
-                <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
-                @guest
-                    <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
-                    @else
-                    <a href="{{ route('logout') }}" class="btn btn-outline-light me-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ Auth::user()->name }}</a>
-                    <form action="{{ route('logout') }}" method="POST" id="logout-form">
-                        @csrf
-                    </form>
-                    @endguest
+                <a href="index.php" class="flex items-center py-5">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
+                    <span class="text-white">log out</span>
+                </a>
             </div>
         </div>
 
@@ -137,11 +131,10 @@
         <div class="w-full h-full rounded">
             <div class="ml-4 mt-8">
                 <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, {{ Auth::user()->name }}</p>
-                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add,
-                    edit, or delete your pets data here</p>
-                <a type="button" href="{{url('/home-admin/create')}}"
+                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">Welcome to Doppie, we hope you find your new family member to warm your house</p>
+                {{-- <a type="button" href="{{url('/home-admin/create')}}"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
-                    New Adoption</a>
+                    New Adoption</a> --}}
             </div>
 
 
@@ -170,18 +163,18 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <form action="{{ url("/home-admin/$item->id") }}" method="POST">
+                        {{-- <form action="{{ url("/home-admin/$item->id") }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="mt-5">
                                 <button
-                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                                    type="submit"><i class="fa-solid fa-trash"></i></button>
+                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit" ><i
+                                        class="fa-solid fa-trash"></i></button>
                                 <a type="submit"
-                                    class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900"
-                                    href="{{ url("/home-admin/$item->id/update") }}"><i class="fa-solid fa-pen"></i></a>
+                                    class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900" href="{{ url("/home-admin/$item->id/update") }}"
+                                    ><i class="fa-solid fa-pen"></i></a>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
                 @endforeach

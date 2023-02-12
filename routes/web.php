@@ -26,6 +26,9 @@ Route::get('/signup-adopter',function(){
 Route::get('/login-adopter',function(){
     return view('auth.login-adopter');
 });
+Route::get('/forgot-password',function(){
+    return view('auth.forgot-password');
+});
 Route::get('/home-admin',[PetController::class, 'index']);
 Route::get('/home-admin/create',[PetController::class, 'create']);
 Route::post('/home-admin', [PetController::class, 'store']);
