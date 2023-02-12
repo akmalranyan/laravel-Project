@@ -35,7 +35,28 @@ public function create(){
             'shop' => $request -> shop,
 
         ]);
-        return redirect('/home');
+        return redirect('/home-admin');
+    }
+
+
+    public function update($id){
+        $pets = Pets::find($id);
+        return view('pets.update', compact('pets'));
+    }
+
+    public function edit(Request $request, $id){
+        $pets = Pets::find($id);
+        $pets->update([
+            'type' => $request -> type,
+            'age' => $request -> age,
+            'desc' => $request -> desc,
+            'shop' => $request -> shop,
+        ]);
+        return redirect('/home-admin');
+    }
+
+    public function delete($id){
+        $pets = Pets::find($id);
     }
 
 }

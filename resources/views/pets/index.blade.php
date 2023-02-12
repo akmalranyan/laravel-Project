@@ -132,7 +132,7 @@
             <div class="ml-4 mt-8">
                 <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, user</p>
                 <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add, edit, or delete your pets data here</p>
-                <a type="button" href="{{url('/create')}}"
+                <a type="button" href="{{url('/home-admin/create')}}"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
                     New Adoption</a>
             </div>
@@ -163,12 +163,12 @@
                             </svg>
                         </a>
                         <div class="mt-5">
-                            <button type="button"
-                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i
-                                    class="fa-solid fa-trash"></i></button>
-                            <button type="button"
-                                class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900"><i
-                                    class="fa-solid fa-pen"></i></button>
+                            <a 
+                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" ><i
+                                    class="fa-solid fa-trash"></i></a>
+                            <a type="button"
+                                class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900" href="{{ url("/home-admin/$item->id/delete") }}"><i
+                                    class="fa-solid fa-pen"></i></a>
                         </div>
                     </div>
                 </div>
