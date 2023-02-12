@@ -31,3 +31,4 @@ Route::get('/home-admin/create',[PetController::class, 'create']);
 Route::post('/home-admin', [PetController::class, 'store']);
 Route::get('/home-admin/{id}/update',[PetController::class, 'update']);
 Route::patch('/home-admin/{id}',[PetController::class, 'edit']);
+Route::delete('/home-admin/{id}',[PetController::class, 'delete']);

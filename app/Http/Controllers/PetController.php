@@ -55,8 +55,9 @@ public function create(){
         return redirect('/home-admin');
     }
 
-    public function delete($id){
-        $pets = Pets::find($id);
+    public function delete(Request $request, $id){
+        Pets::where('id', $id)->delete();
+        return redirect('/home-admin');
     }
 
 }

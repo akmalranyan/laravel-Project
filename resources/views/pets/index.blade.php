@@ -130,8 +130,9 @@
 
         <div class="w-full h-full rounded">
             <div class="ml-4 mt-8">
-                <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, user</p>
-                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add, edit, or delete your pets data here</p>
+                <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, {{ Auth::user()->name }}</p>
+                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add,
+                    edit, or delete your pets data here</p>
                 <a type="button" href="{{url('/home-admin/create')}}"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
                     New Adoption</a>
@@ -151,7 +152,8 @@
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {{ $item->type }}</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $item->desc }} {{ $item->age }} years old</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $item->desc }} {{ $item->age }}
+                            years old</p>
                         <a href="#"
                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             {{ $item->shop }}
@@ -162,14 +164,18 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <div class="mt-5">
-                            <a 
-                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" ><i
-                                    class="fa-solid fa-trash"></i></a>
-                            <a type="button"
-                                class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900" href="{{ url("/home-admin/$item->id/delete") }}"><i
-                                    class="fa-solid fa-pen"></i></a>
-                        </div>
+                        <form action="{{ url("/home-admin/$item->id") }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="mt-5">
+                                <button
+                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit" ><i
+                                        class="fa-solid fa-trash"></i></button>
+                                <a type="submit"
+                                    class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900" href="{{ url("/home-admin/$item->id/update") }}"
+                                    ><i class="fa-solid fa-pen"></i></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 @endforeach
