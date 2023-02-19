@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PetController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,9 @@ Route::get('/login-adopter',function(){
 Route::get('/forgot-password',function(){
     return view('auth.forgot-password');
 });
-Route::get('/home-admin',[PetController::class, 'index']);
-Route::get('/home-admin/create',[PetController::class, 'create']);
-Route::post('/home-admin', [PetController::class, 'store']);
-Route::get('/home-admin/{id}/update',[PetController::class, 'update']);
-Route::patch('/home-admin/{id}',[PetController::class, 'edit']);
-Route::delete('/home-admin/{id}',[PetController::class, 'delete']);
+Route::get('/home-admin',[PetController::class, 'index'])->middleware('is_admin');
+Route::get('/home-admin/create',[PetController::class, 'create'])->middleware('is_admin');
+Route::post('/home-admin', [PetController::class, 'store'])->middleware('is_admin');
+Route::get('/home-admin/{id}/update',[PetController::class, 'update'])->middleware('is_admin');
+Route::patch('/home-admin/{id}',[PetController::class, 'edit'])->middleware('is_admin');
+Route::delete('/home-admin/{id}',[PetController::class, 'delete'])->middleware('is_admin');
