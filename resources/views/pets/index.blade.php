@@ -42,40 +42,7 @@
                     </form>
 
                 </div>
-                <ul class="mt-12">
-                    <li class="flex w-full justify-between text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center   focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grid" width="18"
-                                height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                <rect x="14" y="14" width="6" height="6" rx="1"></rect>
-                            </svg>
-                            <span class="text-sm ml-2">Dashboard</span>
-                        </a>
-
-                    </li>
-                    <li
-                        class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <i class="fa-solid fa-shield-cat"></i>
-                            <span class="text-sm ml-2">Available</span>
-                        </a>
-                    </li>
-                    <li
-                        class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <i class="fa-solid fa-list-check"></i>
-                            <span class="text-sm ml-2">Adopted</span>
-                        </a>
-                    </li>
-                </ul>
+                
             </div>
         </div>
         <div class="w-64 z-40 absolute bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
@@ -96,40 +63,6 @@
                     <i class="fa-solid fa-paw fa-xl" style="color: white;"></i>
                     <p class=" text-2xl text-white">Doppie</p>
                 </div>
-                <ul class="mt-12">
-                    <li class="flex w-full justify-between text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center   focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-grid" width="18"
-                                height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                <rect x="14" y="14" width="6" height="6" rx="1"></rect>
-                            </svg>
-                            <span class="text-sm ml-2">Dashboard</span>
-                        </a>
-
-                    </li>
-                    <li
-                        class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <i class="fa-solid fa-shield-cat"></i>
-                            <span class="text-sm ml-2">Available</span>
-                        </a>
-                    </li>
-                    <li
-                        class="flex w-full justify-between text-gray-400 hover:text-gray-300 cursor-pointer items-center mb-6">
-                        <a href=""
-                            class="flex items-center focus:bg-white focus:text-slate-700 focus:pr-[128px] focus:py-[5px] focus:pl-[8px] duration-200">
-                            <i class="fa-solid fa-list-check"></i>
-                            <span class="text-sm ml-2">Adopted</span>
-                        </a>
-                    </li>
-                </ul>
             </div>
             <div class="px-8 border-t border-gray-700">
                 <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
@@ -151,8 +84,8 @@
 
 
 
-        <div class="w-full h-full rounded">
-            <div class="ml-4 mt-8">
+        <div class="w-full h-full rounded ">
+            <div class="ml-16 mt-24">
                 <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Hey, {{ Auth::user()->name }}</p>
                 <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add,
                     edit, or delete your pets data here</p>
@@ -162,13 +95,13 @@
             </div>
 
 
-            <div class="flex flex-wrap gap-5 ml-4 mt-8">
+            <div class="flex  flex-wrap gap-3 ml-4 mt-20 pb-20">
                 @foreach ($data as $item)
 
                 <div
                     class="max-w-sm w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
                     <a href="#">
-                        <img class="rounded-t-lg w-[45vw]" src="/image/{{ $item->image }}" alt="" />
+                        <img class="rounded-t-lg w-[45vw] h-[52vh]" src="/image/{{ $item->image }}" alt="" />
                     </a>
                     <div class="p-5 block">
                         <a href="#">

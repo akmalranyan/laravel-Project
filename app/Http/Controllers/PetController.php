@@ -53,11 +53,15 @@ public function create(){
     }
 
     public function edit(Request $request, $id){
+        $image_path = $request -> file('image')->getClientOriginalName();
+        $request -> file('image')->move(public_path().'/image/', $image_path);
+        $data[]= $image_path;
         $pets = Pets::find($id);
         $pets->update([
             'type' => $request -> type,
             'age' => $request -> age,
             'desc' => $request -> desc,
+            'image' => $image_path,
             'shop' => $request -> shop,
         ]);
         return redirect('/home-admin');
