@@ -14,6 +14,6 @@ class Pets extends Model
      * @var array
      */
     protected $fillable = [
-        'type', 'age', 'desc', 'shop','img'
+        'type', 'age', 'desc','image', 'shop',
     ];
 }

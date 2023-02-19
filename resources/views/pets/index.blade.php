@@ -166,9 +166,9 @@
                 @foreach ($data as $item)
 
                 <div
-                    class="max-w-sm w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex">
+                    class="max-w-sm w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
                     <a href="#">
-                        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+                        <img class="rounded-t-lg w-[45vw]" src="/image/{{ $item->image }}" alt="" />
                     </a>
                     <div class="p-5 block">
                         <a href="#">

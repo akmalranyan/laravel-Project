@@ -28,13 +28,21 @@ public function create(){
 }
     //create
     public function store(Request $request){
+        // $this->validate($request,[
+        //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        // ]);
+        $image_path = $request -> file('image')->getClientOriginalName();
+        $request -> file('image')->move(public_path().'/image/', $image_path);
+        $data[]= $image_path;
         Pets::create([
             'type' => $request -> type,
             'age' => $request -> age,
             'desc' => $request -> desc,
+            'image' => $image_path,
             'shop' => $request -> shop,
 
         ]);
+        session()->flash('success', 'Image Upload successfully');
         return redirect('/home-admin');
     }
 
