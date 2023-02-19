@@ -20,6 +20,28 @@
                     <i class="fa-solid fa-paw fa-xl" style="color: white;"></i>
                     <p class=" text-2xl text-white">Doppie</p>
                 </div>
+                <div class="flex mb-12 mt-12">
+                    <div
+                        class="relative inline-flex items-center justify-center w-20 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mb-6 mr-6">
+                        <span class="font-medium text-gray-600 dark:text-gray-300"><i
+                                class="fa-solid fa-user"></i></span>
+                    </div>
+                    <div class="">
+                        <span class="text-sm  text-gray-600 dark:text-gray-300">{{ Auth::user()->name }}</span>
+                    </div>
+                </div>
+
+                <div class="px-4 border rounded border-gray-700 flex justify-center">
+                    <a href="{{ route('logout') }}" class="flex items-center py-2"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
+                        <span class="text-white">log out</span>
+                    </a>
+                    <form action="{{ route('logout') }}" method="POST" id="logout-form">
+                        @csrf
+                    </form>
+
+                </div>
                 <ul class="mt-12">
                     <li class="flex w-full justify-between text-gray-300 cursor-pointer items-center mb-6">
                         <a href=""
@@ -54,12 +76,6 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-            <div class="px-8 border-t border-gray-700">
-                <a href="index.php" class="flex items-center py-5">
-                    <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
-                    <span class="text-white">log out</span>
-                </a>
             </div>
         </div>
         <div class="w-64 z-40 absolute bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
@@ -118,14 +134,15 @@
             <div class="px-8 border-t border-gray-700">
                 <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
                 @guest
-                    <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
-                    @else
-                    <a href="{{ route('logout') }}" class="btn btn-outline-light me-2" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ Auth::user()->name }}</a>
-                    <form action="{{ route('logout') }}" method="POST" id="logout-form">
-                        @csrf
-                    </form>
-                    @endguest
+                <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
+                <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
+                @else
+                <a href="{{ route('logout') }}" class="btn btn-outline-light me-2"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ Auth::user()->name }}</a>
+                <form action="{{ route('logout') }}" method="POST" id="logout-form">
+                    @csrf
+                </form>
+                @endguest
             </div>
         </div>
 

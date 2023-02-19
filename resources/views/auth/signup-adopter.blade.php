@@ -24,7 +24,7 @@
             <i class="fa-solid fa-paw fa-xl mt-[15px]" style="color: white;"></i>
             <p class=" text-2xl text-white">Doppie</p>
         </div>
-        <div class="bg-slate-700 h-[90vh] flex justify-center">
+        <div class="bg-slate-700 h-[100vh] flex justify-center">
 
             <div class="card bg-slate-900 mt-20 h-[600px] p-8 w-[500px] rounded-lg">
                 <div class="card-body">
@@ -32,6 +32,7 @@
                         @csrf
                         <h2 class="text-slate-200 text-2xl">Sign Up</h2>
                         <div class="">
+                            <input type="hidden" name="role">
                             {{-- name input section --}}
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white mb-2 mt-14">Name</label>

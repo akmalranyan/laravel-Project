@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddColumnRolePetsTable extends Migration
+class DropRoleFromPetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateAddColumnRolePetsTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->nullable()->after('name');
+            $table -> dropColumn('role');
         });
     }
 
@@ -25,6 +25,8 @@ class CreateAddColumnRolePetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add_column_role_users');
+        Schema::table('pets', function (Blueprint $table) {
+            //
+        });
     }
 }
