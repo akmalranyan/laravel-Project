@@ -20,6 +20,18 @@ class PetController extends Controller
         'data' => $pets
     ]);
 }
+
+
+public function adopt(Request $request ){
+    if($request -> search){
+        $pets = Pets::where('pets', 'LIKE', "%$request->search%")->get();//for query string, search directly the task
+        return $pets;
+    }
+    $pets = Pets::all();
+    // return $pets;
+    return view('pets.index-adopter', [
+        'data' => $pets]);
+}
     
 
 public function create(){

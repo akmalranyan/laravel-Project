@@ -30,6 +30,7 @@ Route::get('/login-adopter',function(){
 Route::get('/forgot-password',function(){
     return view('auth.forgot-password');
 });
+Route::get('/home',[PetController::class, 'adopt']);
 Route::get('/home-admin',[PetController::class, 'index'])->middleware('is_admin');
 Route::get('/home-admin/create',[PetController::class, 'create'])->middleware('is_admin');
 Route::post('/home-admin', [PetController::class, 'store'])->middleware('is_admin');
