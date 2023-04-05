@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex mb-12 mt-12">
                     <div
-                        class="relative inline-flex items-center justify-center w-20 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mb-6 mr-6">
+                        class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mb-6 mr-6">
                         <span class="font-medium text-gray-600 dark:text-gray-300"><i
                                 class="fa-solid fa-user"></i></span>
                     </div>
@@ -42,7 +42,7 @@
                     </form>
 
                 </div>
-                
+
             </div>
         </div>
         <div class="w-64 z-40 absolute bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
@@ -63,19 +63,28 @@
                     <i class="fa-solid fa-paw fa-xl" style="color: white;"></i>
                     <p class=" text-2xl text-white">Doppie</p>
                 </div>
+                <div class="flex mt-12">
+                    <div
+                        class=" inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mb-6 mr-6">
+                        <span class="font-medium text-gray-600 dark:text-gray-300"><i
+                                class="fa-solid fa-user"></i></span>
+                    </div>
+                    <div class="">
+                        <span class="text-sm  text-gray-600 dark:text-gray-300">{{ Auth::user()->name }}</span>
+                    </div>
+                </div>
             </div>
-            <div class="px-8 border-t border-gray-700">
-                <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
-                @guest
-                <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
-                <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
-                @else
-                <a href="{{ route('logout') }}" class="btn btn-outline-light me-2"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ Auth::user()->name }}</a>
+
+            <div class="px-4 border rounded border-gray-700 flex justify-center">
+                <a href="{{ route('logout') }}" class="flex items-center py-2"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
+                    <span class="text-white">log out</span>
+                </a>
                 <form action="{{ route('logout') }}" method="POST" id="logout-form">
                     @csrf
                 </form>
-                @endguest
+
             </div>
         </div>
 
@@ -90,7 +99,7 @@
                 <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">This is an Admin Page, you can add,
                     edit, or delete your pets data here</p>
                 <a type="button" href="{{url('/home-admin/create')}}"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 lg:scale-100 md:scale-100 scale-75 font-medium rounded-lg text-sm px-5 py-2.5  mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add
                     New Adoption</a>
             </div>
 
@@ -99,10 +108,14 @@
                 @foreach ($data as $item)
 
                 <div
-                    class="max-w-sm w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
-                    <a href="#">
-                        <img class="rounded-t-lg w-[45vw] h-[52vh]" src="/image/{{ $item->image }}" alt="" />
-                    </a>
+                    class="max-w-sm  sm:pb-8 md:pb-8 w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
+                    <div class="p-3 sm:flex sm:justify-center">
+                        <div class="">
+                            <a href="#" class="">
+                                <img class="rounded-t-lg w-[45vw] h-[40vh]" src="/image/{{ $item->image }}" alt="" />
+                            </a>
+                        </div>
+                    </div>
                     <div class="p-5 block">
                         <a href="#">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -129,7 +142,7 @@
                                     type="submit"><i class="fa-solid fa-trash"></i></button>
                                 <a type="submit"
                                     class="focus:outline-none text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-900"
-                                    href="{{ url("/home-admin/$item->id/update") }}"><i class="fa-solid fa-pen"></i></a>
+                                    href="{{ url("/home-admin/$item->id") }}"><i class="fa-solid fa-pen"></i></a>
                             </div>
                         </form>
                     </div>

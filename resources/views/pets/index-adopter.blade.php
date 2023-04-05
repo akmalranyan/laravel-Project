@@ -26,12 +26,12 @@
                         <span class="font-medium text-gray-600 dark:text-gray-300"><i
                                 class="fa-solid fa-user"></i></span>
                     </div>
-                    <div class="mt-2">
-                        <span class="text-sm  text-gray-600 dark:text-gray-300">User</span>
+                    <div class="">
+                        <span class="text-sm  text-gray-600 dark:text-gray-300">{{ Auth::user()->name }}</span>
                     </div>
                 </div>
 
-                <div class="px-4 border rounded border-gray-700 flex content-end justify-center">
+                <div class="px-4 border rounded border-gray-700 flex justify-center">
                     <a href="{{ route('logout') }}" class="flex items-center py-2"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
@@ -42,7 +42,7 @@
                     </form>
 
                 </div>
-                
+
             </div>
         </div>
         <div class="w-64 z-40 absolute bg-gray-800 shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out"
@@ -63,19 +63,27 @@
                     <i class="fa-solid fa-paw fa-xl" style="color: white;"></i>
                     <p class=" text-2xl text-white">Doppie</p>
                 </div>
+                <div class="flex mt-12">
+                    <div
+                        class=" inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 mb-6 mr-6">
+                        <span class="font-medium text-gray-600 dark:text-gray-300"><i class="fa-solid fa-user"></i></span>
+                    </div>
+                    <div class="">
+                        <span class="text-sm  text-gray-600 dark:text-gray-300">{{ Auth::user()->name }}</span>
+                    </div>
+                </div>
             </div>
-            <div class="px-8 border-t border-gray-700">
-                <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
-                @guest
-                <a href="{{ route('login') }}" class="btn btn-outline-light me-2">Login</a>
-                <a href="{{ route('register') }}" class="btn btn-warning">Sign-up</a>
-                @else
-                <a href="{{ route('logout') }}" class="btn btn-outline-light me-2"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ Auth::user()->name }}</a>
+
+            <div class="px-4 border rounded border-gray-700 flex justify-center">
+                <a href="{{ route('logout') }}" class="flex items-center py-2"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa-solid fa-arrow-right-from-bracket mr-2" style="color: white;"></i>
+                    <span class="text-white">log out</span>
+                </a>
                 <form action="{{ route('logout') }}" method="POST" id="logout-form">
                     @csrf
                 </form>
-                @endguest
+
             </div>
         </div>
 
@@ -84,21 +92,29 @@
 
 
 
+
+
         <div class="w-full h-full rounded ">
             <div class="ml-16 mt-24">
                 <p class="lg:text-4xl font-semibold text-white  md:text-4xl">Welcome to Doppie</p>
-                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">What a great day to start a day with a new family member</p>
+                <p class="lg:text-l font-medium text-slate-200 mb-5 mt-3 md:text-l">What a great day to start a day with
+                    a new family member</p>
             </div>
 
 
-            <div class="flex  flex-wrap gap-3 ml-4 mt-20 pb-20">
+            <div
+                class="flex sm:justify-center flex-wrap lg:gap-3 sm:gap-y-8 ml-6 mt-20 pb-20">
                 @foreach ($data as $item)
 
                 <div
-                    class="max-w-sm w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
-                    <a href="#" class="rounded-lg">
-                        <img class="rounded-t-lg w-[45vw] h-[52vh] p-3" src="/image/{{ $item->image }}" alt="" />
-                    </a>
+                    class="max-w-sm  sm:pb-8 md:pb-8 w-[50vw] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 block">
+                    <div class="p-3 sm:flex sm:justify-center">
+                        <div class="">
+                            <a href="#" class="">
+                                <img class="rounded-t-lg w-[45vw] h-[40vh]" src="/image/{{ $item->image }}" alt="" />
+                            </a>
+                        </div>
+                    </div>
                     <div class="p-5 block">
                         <a href="#">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

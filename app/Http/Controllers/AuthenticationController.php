@@ -1,0 +1,69 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+
+class AuthenticationController extends Controller
+{ 
+    
+    public function login(Request $request){
+    $request -> validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'role' => 'nullable|string',
+        'password' => 'required'
+    ]);
+    $user = User::where('email', $request->email)->first();
+    // dd($user);
+    if (!$user || ! Hash::check($request->password, $user->password)) {
+        return redirect()->back()->withErrors(['email' => 'The provided credentials do not match our records.']);;
+    }
+
+    return redirect(view('pets.index'));
+}
+
+public function loginadopt(Request $request){
+    $request -> validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'role' => 'nullable|string',
+        'password' => 'required'
+    ]);
+    $user = User::where('email', $request->email)->first();
+    // dd($user);
+    if (!$user || ! Hash::check($request->password, $user->password)) {
+        return redirect()->back()->withErrors(['email' => 'The provided credentials do not match our records.']);;
+    }
+
+    return redirect(view('pets.index-adopter'));
+}
+
+public function logout(Request $request){
+    $request->user()->currentAccessToken()->delete();
+
+    return response()->json([
+        'message' => 'you have been logged out'
+    ]);
+}
+
+
+public function register(Request $request){
+    // $request->validate([
+    //     'firstname' => 'required',
+    //     'lastname' => 'nullable',
+    //     'username' => 'required',
+    //     'email' => 'required|email',
+    //     'password' => 'required|password'
+
+    // ]);
+
+    $user = User::create(Request(['name', 'email', 'password', 'confirm password']));
+    auth()->login($user);
+    return redirect(view('pets.index-adopter'));
+}
+} 
+

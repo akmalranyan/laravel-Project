@@ -63,13 +63,15 @@
                             @enderror
                         </div>
 
-                        <div class="">
+                        {{-- <div class="">
                             <a href="{{ url('/forgot-password') }}" class="text-blue-500 mt-8 text-small hover:underline ">Forgot your password?</a>
-                        </div>
+                        </div> --}}
 
                         <div class="">
                             <button type="submit"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10">Login</button>
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-10">
+                                Login
+                            </button>
                         </div>
                     </form>
                     </form>

@@ -30,7 +30,7 @@
 
             <div class="card bg-slate-900 mt-20 h-[75vh] md:h-[90vh] p-14 rounded-lg">
                 <div class="card-body">
-                    <form action="{{ url("/home-admin/$pets->id") }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url("/home-admin/$pets->id/edit") }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <h2 class="text-slate-200 text-2xl">Edit Animal Information</h2>
