@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
-                        <h2 class="text-slate-200 text-2xl">Login To Your Admin Account</h2>
+                        <h2 class="text-slate-200 text-2xl">Login To Your Account</h2>
                         <div class="">
                             {{-- name input section --}}
                             <label for="name"
