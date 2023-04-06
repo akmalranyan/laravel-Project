@@ -44,7 +44,7 @@ public function create(){
         //     'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         // ]);
         $image_path = $request -> file('image')->getClientOriginalName();
-        $request -> file('image')->move(public_path().'/image/', $image_path);
+        $request -> file('image')->move(public_path(), $image_path);
         $data[]= $image_path;
         Pets::create([
             'type' => $request -> type,
@@ -66,7 +66,7 @@ public function create(){
 
     public function edit(Request $request, $id){
         $image_path = $request -> file('image')->getClientOriginalName();
-        $request -> file('image')->move(public_path().'/image/', $image_path);
+        $request -> file('image')->move(public_path(), $image_path);
         $data[]= $image_path;
         $pets = Pets::find($id);
         $pets->update([

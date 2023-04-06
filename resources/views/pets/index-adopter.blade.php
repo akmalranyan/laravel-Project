@@ -111,7 +111,7 @@
                     <div class="p-3 sm:flex sm:justify-center">
                         <div class="">
                             <a href="#" class="">
-                                <img class="rounded-t-lg w-[45vw] h-[40vh]" src="/image/{{ $item->image }}" alt="" />
+                                <img class="rounded-t-lg w-[45vw] h-[40vh]" src="{{asset($item->image)}}" alt="" />
                             </a>
                         </div>
                     </div>
